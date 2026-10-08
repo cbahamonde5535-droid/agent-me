@@ -31,6 +31,7 @@ MAX_STEPS = 25  # model calls per user message, a guard against runaway loops
 MODE_TOOLS = {
     "research": [SEARCH_LITERATURE, GET_CITATION, SAVE_SOURCE, LIST_SOURCES, WEB_SEARCH, WEB_FETCH],
     "feedback": [GET_CITATION, SEARCH_LITERATURE, LIST_SOURCES],
+    "checklist": [],
 }
 
 # Callback receives (event_kind, detail). Kinds: "tool", "notice".
@@ -83,10 +84,11 @@ class Agent:
             "model": self.model,
             "max_tokens": 16000,
             "system": PROMPTS[self.mode],
-            "tools": MODE_TOOLS[self.mode],
             "messages": self.messages,
             "cache_control": {"type": "ephemeral"},
         }
+        if MODE_TOOLS[self.mode]:
+            kwargs["tools"] = MODE_TOOLS[self.mode]
         if not self.model.startswith("claude-haiku"):
             kwargs["output_config"] = {"effort": self.effort}
         if self.model in FALLBACK_MODELS:

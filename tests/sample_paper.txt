@@ -1,0 +1,15 @@
+Trauma-Informed Care in Schools
+
+Trauma affects many students (Smith and Jones, 2020). Research shows outcomes improve (Lee et al., 2019; Garcia, 2021). Brown, Davis, and Wilson (2018) found mixed results. Adams & Clark (2017) argue otherwise. According to Smith et al. (2020), schools need training.
+One study noted that "students who feel safe at school are more likely to engage in learning" (Garcia, 2021). The National Association of Social Workers (2021) sets standards. Kim (2015) is cited here too. It is important to note that this multifaceted issue plays a crucial role in the tapestry of education.
+
+References
+
+Smith, J. A., & Jones, B. (2020). Trauma in schools. Journal of School Social Work, 5(2), 1-10. doi:10.1000/abc123
+Garcia, M. (2021). Safety and engagement. Children & Schools, 43(1), 20–30. https://doi.org/10.1093/cs/cdab001
+Lee, K., Park, S., & Choi, H. (2019). Outcomes of trauma-informed practice. Social Work, 64(3), 200–210.
+Brown, A., Davis, C., & Wilson, E. (2018). Mixed results. Journal of Social Work, 3, 4–5.
+Adams, R., Clark, T. (2017). Another view. Retrieved from https://example.org/adams
+National Association of Social Workers. (2021). Code of ethics. https://www.socialworkers.org
+Zimmer, Q. (2010). Never cited. Some Journal, 1, 1–2.
+Kim, Y. (2016). Year mismatch. Some Journal, 2, 3–4.

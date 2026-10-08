@@ -186,3 +186,10 @@ def test_no_fallbacks_for_other_models(tmp_path):
     client = FakeClient([resp("end_turn", block("text", text="hi"))])
     Agent(client=client, library=Library(tmp_path / "l.json"), model="claude-sonnet-5").send("q")
     assert "fallbacks" not in client.calls[0]
+
+
+def test_checklist_mode_sends_no_tools(tmp_path):
+    client = FakeClient([resp("end_turn", block("text", text="| Requirement | Status |"))])
+    Agent(mode="checklist", client=client, library=Library(tmp_path / "l.json")).send("check")
+    assert "tools" not in client.calls[0]
+    assert "Requirements checklist" in client.calls[0]["system"]

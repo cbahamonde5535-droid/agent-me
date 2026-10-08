@@ -1,9 +1,15 @@
 # MSW Study Agent
 
-An AI assistant for a Master of Social Work program, built on Claude. It has two modes:
+An AI assistant for a Master of Social Work program, built on Claude. It has three modes:
 
 - **Research assistant**: finds peer-reviewed articles (through [OpenAlex](https://openalex.org)) and policy or grey literature (web search). It summarizes sources, builds APA 7 references from verified DOI metadata (through [Crossref](https://www.crossref.org)), and saves sources to a library for each course. You can download a course's library as an alphabetized reference list.
 - **Paper feedback coach**: you upload your draft (.docx, .pdf, .txt) and the rubric or assignment instructions. It checks the draft against each rubric item, finds the most important improvements, reviews your argument and evidence, checks the NASW Code of Ethics connections, APA 7 formatting, and bias-free language, and checks your DOIs to see whether your references are real. **It gives feedback and does not rewrite your paper.**
+
+- **Submission check**: upload your paper, and optionally the assignment instructions or rubric.
+  - **Free, no API key needed:** automatic APA 7 checks. It flags in-text citations missing from the reference list, references you never cite, years that don't match, "&" vs "and", et al. rules, quotations without page numbers, reference order, DOI format, and "Retrieved from". It also checks your DOIs against Crossref to catch wrong authors or years, and lists phrases often linked to AI-generated writing.
+  - **With an API key (usually a few cents):** Claude goes through every bullet point and rubric item, marking each Met, Partly met, or Missing and quoting where it appears in your paper.
+
+> **About AI detection.** This does not give an "AI score", on purpose. AI detectors, including the one in Turnitin, are known to produce false positives, especially for non-native English writers, and no tool can predict what your school's detector will say. The phrase list is only a style hint. The best protection is a writing history: draft in Google Docs or Word with version history turned on.
 
 ## Setup (one time)
 
@@ -60,5 +66,6 @@ pip install pytest && pytest
 
 - `msw_agent/agent.py`: the agent loop (tool calls, pause/resume, refusal handling)
 - `msw_agent/tools.py`: OpenAlex search, Crossref lookup, APA formatter, course library, file reading
+- `msw_agent/checker.py`: rule-based APA 7 checks and AI-phrase scan (no API)
 - `msw_agent/prompts.py`: instructions for each mode
 - `app.py`: web app; `cli.py`: terminal app
